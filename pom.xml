@@ -25,10 +25,10 @@
 		</license>
 	</licenses>
 
+	<!-- Overriding inherited properties -->
 	<organization>
 		<name>Revolt Code</name>
 	</organization>
-
 	<developers>
 		<developer>
 			<name>Bassey Oddy</name>
@@ -36,12 +36,46 @@
 		</developer>
 	</developers>
 
+	<!-- Adding shared properties -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>11</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+		<jaxb.version>2.3.0</jaxb.version>
+		<awaitility.version>4.0.3</awaitility.version>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>javax.xml.bind</groupId>
+				<artifactId>jaxb-api</artifactId>
+				<version>${jaxb.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-core</artifactId>
+				<version>${jaxb.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-impl</artifactId>
+				<version>${jaxb.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mapstruct</groupId>
+				<artifactId>mapstruct</artifactId>
+				<version>${org.mapstruct.version}</version>
+			</dependency>
+			<!-- No need to add project Lombok because that is being managed inside of SpringBoot -->
+			<dependency>
+				<groupId>org.awaitility</groupId>
+				<artifactId>awaitility</artifactId>
+				<version>${awaitility.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
